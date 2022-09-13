@@ -1,1 +1,0 @@
-export const API = 'http://cdf3-177-124-98-246.ngrok.io'

@@ -1,5 +1,35 @@
 {
-    "users": [],
-    "invoices": [],
-    "bills": []
-  }
+  "users": [
+    {
+      "fullname": "Zé da Silva",
+      "contact": 995548323,
+      "email": "ze@silva.com",
+      "number_rg": 3542689,
+      "cpf": 99966699966,
+      "password": 12345678,
+      "address": {
+        "cep": 88088200,
+        "street": "Rua sem saída",
+        "city": "Garopaba",
+        "state": "SC",
+        "region": "Bairro do Tibursu",
+        "number": 100,
+        "complement": "sem complemento"
+      },
+      "billing_day": "2022-10-10"
+    }
+  ],
+  "invoices": [],
+  "debts": [
+    {
+      "id": 1234534,
+      "amount": 230.23,
+      "recipient": "EPP Energias do Mundo"
+    },
+    {
+      "id": 545434326,
+      "amount": 30.23,
+      "recipient": "DevInHouse Ltda"
+    }
+  ]
+}
