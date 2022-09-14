@@ -49,8 +49,24 @@ export default function App() {
             }
           }
         />
-        <Stack.Screen name='FormUser' component={FormUser} />
-        <Stack.Screen name='FormAddress' component={FormAddress} />
+        <Stack.Screen
+          name='FormUser'
+          component={FormUser}
+          options={
+            {
+              headerShown: false
+            }
+          }
+        />
+        <Stack.Screen 
+          name='FormAddress' 
+          component={FormAddress}
+          options={
+            {
+              headerShown: false
+            }
+          }
+          />
         <Stack.Screen name='BillingDay' component={BillingDay} />
         <Stack.Screen name='Terms' component={Terms} />
         <Stack.Screen name='Account' component={AccountNavigator} />

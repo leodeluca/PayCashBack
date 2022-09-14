@@ -3,9 +3,14 @@ import { StyleSheet } from "react-native";
 export const commonStyles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#EEF2E6'
+    },
+    title: {
+        fontSize: 32,
+        fontWeight: 'bold',
+        color: '#1C6758',
+        marginVertical: 20,
+        alignSelf: 'center'
     },
     button: {
         height: 50,
@@ -22,15 +27,32 @@ export const commonStyles = StyleSheet.create({
         fontSize: 14,
         fontWeight: 'bold'
     },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '90%'
+    },
+    inputContainer: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     input: {
         backgroundColor: '#D6CDA4',
         height: 50,
         width: '90%',
-        borderColor: '#3D8361',
-        borderWidth: 2,
-        borderRadius: 5,
+        // borderColor: '#3D8361',
+        // borderWidth: 1,
+        // borderRadius: 5,
         color: '#3D8361',
         marginVertical: 10,
         padding: 10
     },
+    inputLabel: {
+        alignSelf: 'flex-start',
+        marginLeft: 20,
+        marginTop: 5,
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: '#3D8361'
+    }
 });

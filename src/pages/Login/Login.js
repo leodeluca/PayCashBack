@@ -36,7 +36,7 @@ export default function Login({ navigation }) {
     }
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={commonStyles.container}>
             <StatusBar backgroundColor='#1C6758' />
             <ScrollView>
                 <View style={styles.logo}>
@@ -45,9 +45,9 @@ export default function Login({ navigation }) {
                         style={styles.image}
                         resizeMode='contain'
                     />
-                    <Text style={styles.title}>PAY Cash Back</Text>
+                    <Text style={commonStyles.title}>PAY Cash Back</Text>
                 </View>
-                <View style={styles.login}>
+                <View style={commonStyles.inputContainer}>
                     <TextInput
                         style={commonStyles.input}
                         placeholder='CPF'
@@ -56,6 +56,7 @@ export default function Login({ navigation }) {
                         keyboardType='number-pad'
                         value={cpf}
                         onChangeText={setCpf}
+                        autoFocus
                     />
                     <TextInput
                         style={commonStyles.input}
@@ -93,16 +94,6 @@ const styles = StyleSheet.create({
     image: {
         height: 100,
         width: 100
-    },
-    title: {
-        fontSize: 36,
-        fontWeight: 'bold',
-        color: '#1C6758',
-        marginVertical: 20
-    },
-    login: {
-        justifyContent: 'center',
-        alignItems: 'center'
     },
     callToActionText: {
         color: '#3D8361',

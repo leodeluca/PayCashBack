@@ -15,7 +15,7 @@ export default function Home({ navigation }) {
     }
 
     return (
-        <SafeAreaView style={commonStyles.container}>
+        <SafeAreaView style={{...commonStyles.container, ...styles.containerHome}}>
             <StatusBar backgroundColor='#1C6758' />
             <LottieView
                 autoPlay
@@ -33,6 +33,10 @@ export default function Home({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    containerHome: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     animation: {
         height: Dimensions.get('screen').height * 0.4,
         marginBottom: 20
