@@ -51,5 +51,12 @@ export const commonStyles = StyleSheet.create({
         fontSize: 14,
         fontWeight: 'bold',
         color: '#3D8361'
+    },
+    infoText: {
+        fontSize: 20,
+        marginVertical: 5,
+        marginHorizontal: 20,
+        color: '#3D8361',
+        fontWeight: 'bold'
     }
 });

@@ -7,6 +7,7 @@ import Icon from '@expo/vector-icons/MaterialIcons';
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
+const BarCodeStack = createStackNavigator()
 
 import Home from './src/pages/Home/Home'
 import Login from './src/pages/Login/Login'
@@ -17,6 +18,7 @@ import Terms from './src/pages/Terms/Terms'
 import Account from './src/pages/Account/Account'
 import Invoices from './src/pages/Invoices/Invoices'
 import BarCode from './src/pages/BarCode/BarCode'
+import TicketDetails from './src/pages/TicketDetails/TicketDetails'
 
 function AccountNavigator() {
   return (
@@ -50,8 +52,8 @@ function AccountNavigator() {
         }}
       />
       <Tab.Screen
-        name='BarCode'
-        component={BarCode}
+        name='BarCodeNavigator'
+        component={BarCodeNavigator}
         options={{
           tabBarLabel: 'Escanear Novo Boleto',
           tabBarIcon: ({ color }) => (
@@ -61,6 +63,25 @@ function AccountNavigator() {
         }}
       />
     </Tab.Navigator>
+  )
+}
+
+function BarCodeNavigator() {
+  return (
+    <BarCodeStack.Navigator>
+      <BarCodeStack.Screen name='BarCode' component={BarCode}
+        options={
+          {
+            headerShown: false
+          }
+        } />
+        <BarCodeStack.Screen name='TicketDetails' component={TicketDetails}
+        options={
+          {
+            headerShown: false
+          }
+        } />
+    </BarCodeStack.Navigator>
   )
 }
 

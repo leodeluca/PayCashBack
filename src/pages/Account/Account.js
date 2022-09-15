@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { SafeAreaView, StyleSheet, Text, ScrollView, View, TouchableOpacity } from 'react-native';
+import { SafeAreaView, Text, ScrollView, View, TouchableOpacity } from 'react-native';
 import { commonStyles } from '../../styles/CommonStyles.js'
 import { API } from '../../services/api'
 
@@ -30,10 +30,10 @@ export default function Account({ navigation, route }) {
       <Text style={{ ...commonStyles.title, fontSize: 24 }}>Dados da conta</Text>
       <ScrollView horizontal>
         <View>
-          <Text style={styles.infoText}>Nome: {userData[0].fullname}</Text>
-          <Text style={styles.infoText}>CPF: {userData[0].cpf}</Text>
-          <Text style={styles.infoText}>Telefone: {userData[0].contact}</Text>
-          <Text style={styles.infoText}>RG: {userData[0].number_rg}</Text>
+          {/* <Text style={commonStyles.infoText}>Nome: {userData[0].fullname}</Text>
+          <Text style={commonStyles.infoText}>CPF: {userData[0].cpf}</Text>
+          <Text style={commonStyles.infoText}>Telefone: {userData[0].contact}</Text>
+          <Text style={commonStyles.infoText}>RG: {userData[0].number_rg}</Text> */}
         </View>
       </ScrollView>
       <TouchableOpacity
@@ -45,13 +45,3 @@ export default function Account({ navigation, route }) {
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  infoText: {
-    fontSize: 20,
-    marginVertical: 5,
-    marginHorizontal: 20,
-    color: '#3D8361',
-    fontWeight: 'bold'
-  }
-})
