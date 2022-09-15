@@ -15,18 +15,22 @@ export default function Login({ navigation }) {
 
     function getUser() {
         if (!cpf || cpf.length === 0) {
-            alert('Preenchimento do campo CPF obrigatório')
+            alert('O preenchimento do CPF é obrigatório.')
         } else if (!password || password.length === 0) {
-            alert('Preenchimento do campo senha obrigatório')
+            alert('O preenchimento da senha é obrigatório.')
         } else {
             fetch(API + '/users' + '?cpf=' + cpf + '&password=' + password)
                 .then(async (response) => {
                     const data = await response.json()
                     if (!data || data.length === 0) {
-                        alert('Usuário com CPF e/ou Senha inválidos')
+                        alert('Usuário com CPF e/ou Senha inválidos.')
                     } else {
-                        //ToDo = passar objeto de usuário para tela account
-                        navigation.navigate('Account')
+                        navigation.navigate('AccountNavigator',
+                            {
+                                screen: 'Account',
+                                params: { id: data[0].id },
+                            }
+                        )
                         setCpf('')
                         setPassword('')
                     }

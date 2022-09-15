@@ -1,6 +1,7 @@
 {
   "users": [
     {
+      "id": 1,
       "fullname": "Zé da Silva",
       "contact": 995548323,
       "email": "ze@silva.com",
@@ -17,6 +18,44 @@
         "complement": "sem complemento"
       },
       "billing_day": "2022-10-10"
+    },
+    {
+      "fullname": "Teste",
+      "contact": "123",
+      "email": ".com",
+      "number_rg": "123",
+      "cpf": "123",
+      "password": "123",
+      "address": {
+        "cep": "123",
+        "street": "123",
+        "city": "Teste",
+        "state": "SC",
+        "region": "Teste",
+        "number": "123",
+        "complement": ""
+      },
+      "billing_day": "2022-10-20",
+      "id": 2
+    },
+    {
+      "fullname": "Leo Luca",
+      "contact": "48996568398",
+      "email": "leocluca@gmail.com",
+      "number_rg": "3170653",
+      "cpf": "04736375965",
+      "password": "12345678",
+      "address": {
+        "cep": "88036270",
+        "street": "Juvêncio Costa",
+        "city": "Florianópolis",
+        "state": "SC",
+        "region": "Trindade ",
+        "number": "223",
+        "complement": ""
+      },
+      "billing_day": "2022-09-30",
+      "id": 3
     }
   ],
   "invoices": [],

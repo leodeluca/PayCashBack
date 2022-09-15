@@ -6,6 +6,7 @@ import { Picker } from "@react-native-picker/picker";
 export default function FormAddress({ navigation, route }) {
 
     const { user } = route.params
+    console.log(user)
 
     const [cep, setCep] = useState('')
     const [street, setStreet] = useState('')
@@ -20,26 +21,39 @@ export default function FormAddress({ navigation, route }) {
     }
 
     function navigateToBillingDay() {
-        //ToDo = validações de inputs
-        navigation.navigate('BillingDay', {
-            user: {
-                fullname: user.fullname,
-                contact: user.contact,
-                email: user.email,
-                number_rg: user.number_rg,
-                cpf: user.cpf,
-                password: user.password,
-                address: {
-                    cep: cep,
-                    street: street,
-                    city: city,
-                    state: state,
-                    region: region,
-                    number: number,
-                    complement: complement
+        if (!cep || cep.length === 0) {
+            alert('O preenchimento do CEP é obrigatório.')
+        } else if (!street || street.length === 0) {
+            alert('O preenchimento da rua é obrigatório.')
+        } else if (!city || city.length === 0) {
+            alert('O preenchimento da cidade é obrigatório.')
+        } else if (!state || state.length === 0) {
+            alert('A seleção do estado é obrigatória.')
+        } else if (!region || region.length === 0) {
+            alert('O preenchimento do bairro é obrigatório.')
+        } else if (!number || number.length === 0) {
+            alert('O preenchimento do número do imóvel é obrigatório.')
+        } else {
+            navigation.navigate('BillingDay', {
+                user: {
+                    fullname: user.fullname,
+                    contact: user.contact,
+                    email: user.email,
+                    number_rg: user.number_rg,
+                    cpf: user.cpf,
+                    password: user.password,
+                    address: {
+                        cep: cep,
+                        street: street,
+                        city: city,
+                        state: state,
+                        region: region,
+                        number: number,
+                        complement: complement
+                    }
                 }
-            }
-        })
+            })
+        }
     }
 
     return (
@@ -48,7 +62,7 @@ export default function FormAddress({ navigation, route }) {
             <Text style={{ ...commonStyles.title, fontSize: 24 }}>Endereço</Text>
             <ScrollView>
                 <View style={commonStyles.inputContainer}>
-                    <Text style={commonStyles.inputLabel}>CEP: </Text>
+                    <Text style={commonStyles.inputLabel}>CEP: *</Text>
                     <TextInput
                         style={commonStyles.input}
                         placeholderTextColor='#3D8361'
@@ -58,7 +72,7 @@ export default function FormAddress({ navigation, route }) {
                         onChangeText={setCep}
                         autoFocus
                     />
-                    <Text style={commonStyles.inputLabel}>Rua: </Text>
+                    <Text style={commonStyles.inputLabel}>Rua: *</Text>
                     <TextInput
                         style={commonStyles.input}
                         placeholderTextColor='#3D8361'
@@ -66,7 +80,7 @@ export default function FormAddress({ navigation, route }) {
                         value={street}
                         onChangeText={setStreet}
                     />
-                    <Text style={commonStyles.inputLabel}>Cidade: </Text>
+                    <Text style={commonStyles.inputLabel}>Cidade: *</Text>
                     <TextInput
                         style={commonStyles.input}
                         placeholderTextColor='#3D8361'
@@ -74,7 +88,7 @@ export default function FormAddress({ navigation, route }) {
                         value={city}
                         onChangeText={setCity}
                     />
-                    <Text style={commonStyles.inputLabel}>Estado: </Text>
+                    <Text style={commonStyles.inputLabel}>Estado: *</Text>
                     <Picker
                         selectedValue={state}
                         onValueChange={(value) => setState(value)}
@@ -109,7 +123,7 @@ export default function FormAddress({ navigation, route }) {
                         <Picker.Item label='Sergipe' value='SE' />
                         <Picker.Item label='Tocantins' value='TO' />
                     </Picker>
-                    <Text style={commonStyles.inputLabel}>Bairro: </Text>
+                    <Text style={commonStyles.inputLabel}>Bairro: *</Text>
                     <TextInput
                         style={commonStyles.input}
                         placeholderTextColor='#3D8361'
@@ -117,7 +131,7 @@ export default function FormAddress({ navigation, route }) {
                         value={region}
                         onChangeText={setRegion}
                     />
-                    <Text style={commonStyles.inputLabel}>Número: </Text>
+                    <Text style={commonStyles.inputLabel}>Número do imóvel: *</Text>
                     <TextInput
                         style={commonStyles.input}
                         placeholderTextColor='#3D8361'

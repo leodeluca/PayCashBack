@@ -1,6 +1,10 @@
 import { SafeAreaView, StyleSheet, Text, StatusBar } from 'react-native';
+import { userId } from '../Account/Account'
 
 export default function Invoices() {
+
+    console.log(userId)
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar />
