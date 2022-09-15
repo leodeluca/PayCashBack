@@ -40,9 +40,6 @@ export const commonStyles = StyleSheet.create({
         backgroundColor: '#D6CDA4',
         height: 50,
         width: '90%',
-        // borderColor: '#3D8361',
-        // borderWidth: 1,
-        // borderRadius: 5,
         color: '#3D8361',
         marginVertical: 10,
         padding: 10

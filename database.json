@@ -39,7 +39,7 @@
       "id": 2
     },
     {
-      "fullname": "Leo Luca",
+      "fullname": "Leonardo Cirimbelli De Luca",
       "contact": "48996568398",
       "email": "leocluca@gmail.com",
       "number_rg": "3170653",
@@ -58,7 +58,40 @@
       "id": 3
     }
   ],
-  "invoices": [],
+  "invoices": [
+    {
+      "recipient": "EPP Energias do Mundo",
+      "amount": 230.23,
+      "date": "15/09/2022 15:30",
+      "code": "1234563",
+      "user_id": 3,
+      "cashback": 23.02
+    },
+    {
+      "recipient": "EPP Energias do Mundo",
+      "amount": 230.23,
+      "date": "15/09/2022 15:30",
+      "code": "1234562",
+      "user_id": 3,
+      "cashback": 23.02
+    },
+    {
+      "recipient": "EPP Energias do Mundo",
+      "amount": 230.23,
+      "date": "15/09/2022 15:30",
+      "code": "1234561",
+      "user_id": 3,
+      "cashback": 23.02
+    },
+    {
+      "recipient": "DevInHouse Ltda",
+      "amount": 230.23,
+      "date": "15/09/2022 15:30",
+      "code": "1234567",
+      "user_id": 2,
+      "cashback": 23.02
+    }
+  ],
   "debts": [
     {
       "id": 1234534,

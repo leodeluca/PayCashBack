@@ -42,7 +42,7 @@ function AccountNavigator() {
         name='Invoices'
         component={Invoices}
         options={{
-          tabBarLabel: 'Faturas',
+          tabBarLabel: 'Boletos Pagos',
           tabBarIcon: ({ color }) => (
             <Icon name="receipt-long" color={color} size={32} />
           ),
@@ -53,7 +53,7 @@ function AccountNavigator() {
         name='BarCode'
         component={BarCode}
         options={{
-          tabBarLabel: 'Escanear Fatura',
+          tabBarLabel: 'Escanear Novo Boleto',
           tabBarIcon: ({ color }) => (
             <Icon name="qr-code" color={color} size={32} />
           ),
