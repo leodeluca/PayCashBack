@@ -1,6 +1,6 @@
 import { SafeAreaView, StyleSheet, Text, StatusBar, Image, ScrollView, View, TextInput, TouchableOpacity } from 'react-native';
 import { commonStyles } from '../../styles/CommonStyles.js'
-import PayImage from '../../../assets/pay.png'
+import PayImage from '../../../assets/pay-logo.png'
 import { useState } from 'react';
 import { API } from '../../services/api'
 
@@ -49,7 +49,6 @@ export default function Login({ navigation }) {
                         style={styles.image}
                         resizeMode='contain'
                     />
-                    <Text style={commonStyles.title}>PAY Cash Back</Text>
                 </View>
                 <View style={commonStyles.inputContainer}>
                     <TextInput
@@ -93,11 +92,10 @@ const styles = StyleSheet.create({
     logo: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginVertical: 40
     },
     image: {
-        height: 100,
-        width: 100
+        height: 250,
+        width: 250
     },
     callToActionText: {
         color: '#3D8361',
