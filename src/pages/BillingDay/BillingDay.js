@@ -7,11 +7,10 @@ import { format } from 'date-fns'
 export default function BillingDay({ navigation, route }) {
 
     const { user } = route.params
-    console.log(user)
 
-    const dataAtual = format(new Date(), 'yyyy-MM-dd')
+    const currentDate = format(new Date(), 'yyyy-MM-dd')
 
-    const [date, setDate] = useState(dataAtual)
+    const [date, setDate] = useState(currentDate)
 
     function navigateToFormAddress() {
         navigation.navigate('FormAddress', { user: user })
@@ -49,8 +48,7 @@ export default function BillingDay({ navigation, route }) {
                     <Calendar
                         style={styles.calendar}
                         onDayPress={(currentDate) => setDate(currentDate.dateString)}
-                        // maxDate='2022-09-24'
-                        minDate={dataAtual}
+                        minDate={currentDate}
                         markedDates={{
                             [date]: {
                                 selected: true,

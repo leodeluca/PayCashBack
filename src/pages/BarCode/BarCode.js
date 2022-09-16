@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, ScrollView, Dimensions, Button } from 'react-native';
+import { SafeAreaView, Text, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { useState, useEffect } from 'react';
 import { commonStyles } from '../../styles/CommonStyles.js'
@@ -9,13 +9,23 @@ export default function BarCode({ navigation }) {
 
     const [hasPermission, setHasPermission] = useState(false)
     const [scanned, setScanned] = useState(false)
-    const [debt, setDebt] = useState([])
+    const [userData, setUserData] = useState([])
 
     const getPermission = async () => {
         const { status } = await BarCodeScanner.requestPermissionsAsync();
-        // console.log(status)
         setHasPermission(status === 'granted' ? true : false)
     }
+
+    useEffect(() => {
+        console.log(userId)
+        fetch(API + '/users?id=' + userId)
+            .then(async (response) => {
+                const data = await response.json()
+                setUserData(data)
+                console.log(userData[0].fullname)
+            })
+            .catch(() => console.log('Houve um erro ao buscar os dados do usuário.'))
+    }, [])
 
     useEffect(() => {
         getPermission()
@@ -29,9 +39,16 @@ export default function BarCode({ navigation }) {
             .then(async (response) => {
                 const data = await response.json()
                 if (data.length === 1) {
-                    console.log(data.length)
-                    setDebt(data)
-                    navigation.navigate('TicketDetails')
+                    //console.log(data)
+                    // setDebt(data)
+                    navigation.navigate('TicketDetails', {
+                        debt: {
+                            amount: data[0].amount,
+                            code: data[0].id,
+                            recipient: data[0].recipient,
+                            user_id: userId
+                        }
+                    })
                 } else {
                     alert('Código inválido.')
                 }
@@ -46,7 +63,8 @@ export default function BarCode({ navigation }) {
 
     return (
         <SafeAreaView style={{ ...commonStyles.container, alignItems: 'center' }}>
-            <Text style={{ ...commonStyles.title, fontSize: 24 }}>Olá 'Nome do Usuário'</Text>
+            {/* <Text style={{ ...commonStyles.title, fontSize: 22 }} numberOfLines={1} ellipsizeMode={'tail'}>Olá, {userData[0].fullname}</Text> */}
+            <Text style={{ ...commonStyles.title, fontSize: 22 }} numberOfLines={1} ellipsizeMode={'tail'}>Olá, User</Text>
             <ScrollView>
                 {
                     hasPermission === false && <Text style={commonStyles.infoText}>Permissão para câmera negada</Text>
@@ -62,7 +80,12 @@ export default function BarCode({ navigation }) {
                         barCodeTypes={['code39']}
                     />
                 }
-                <Button title="Scannear" onPress={openCamera} />
+                <TouchableOpacity
+                    style={{ ...commonStyles.button, alignSelf: 'center' }}
+                    onPress={openCamera}
+                >
+                    <Text style={commonStyles.buttonText}>Escanear Boleto</Text>
+                </TouchableOpacity>
             </ScrollView>
         </SafeAreaView>
     )

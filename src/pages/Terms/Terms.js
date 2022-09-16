@@ -6,7 +6,7 @@ import { API } from '../../services/api'
 export default function Terms({ navigation, route }) {
 
     const { user } = route.params
-    console.log(user)
+
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 

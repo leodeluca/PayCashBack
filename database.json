@@ -65,7 +65,8 @@
       "date": "15/09/2022 15:30",
       "code": "1234563",
       "user_id": 3,
-      "cashback": 23.02
+      "cashback": 23.02,
+      "id": 1
     },
     {
       "recipient": "EPP Energias do Mundo",
@@ -73,7 +74,8 @@
       "date": "15/09/2022 15:30",
       "code": "1234562",
       "user_id": 3,
-      "cashback": 23.02
+      "cashback": 23.02,
+      "id": 2
     },
     {
       "recipient": "EPP Energias do Mundo",
@@ -81,7 +83,8 @@
       "date": "15/09/2022 15:30",
       "code": "1234561",
       "user_id": 3,
-      "cashback": 23.02
+      "cashback": 23.02,
+      "id": 3
     },
     {
       "recipient": "DevInHouse Ltda",
@@ -89,7 +92,17 @@
       "date": "15/09/2022 15:30",
       "code": "1234567",
       "user_id": 2,
-      "cashback": 23.02
+      "cashback": 23.02,
+      "id": 4
+    },
+    {
+      "recipient": "EPP Energias do Mundo",
+      "amount": 230.23,
+      "date": "16/09/2022 11:35",
+      "code": 1234534,
+      "user_id": 3,
+      "cashback": "23.02",
+      "id": 5
     }
   ],
   "debts": [
