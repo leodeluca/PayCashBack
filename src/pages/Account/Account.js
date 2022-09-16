@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { SafeAreaView, Text, ScrollView, View, TouchableOpacity } from 'react-native';
+import { useState, useEffect } from 'react'
+import { SafeAreaView, Text, ScrollView, View, TouchableOpacity } from 'react-native'
 import { commonStyles } from '../../styles/CommonStyles.js'
 import { API } from '../../services/api'
 import { useIsFocused } from '@react-navigation/native'

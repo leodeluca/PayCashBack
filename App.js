@@ -1,9 +1,9 @@
 import 'react-native-gesture-handler'
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from '@expo/vector-icons/MaterialIcons';
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import Icon from '@expo/vector-icons/MaterialIcons'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -75,7 +75,7 @@ function BarCodeNavigator() {
             headerShown: false
           }
         } />
-        <BarCodeStack.Screen name='TicketDetails' component={TicketDetails}
+      <BarCodeStack.Screen name='TicketDetails' component={TicketDetails}
         options={
           {
             headerShown: false
@@ -88,7 +88,7 @@ function BarCodeNavigator() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Login'>
+      <Stack.Navigator initialRouteName='Home'>
         <Stack.Screen
           name='Home'
           component={Home}
@@ -154,5 +154,5 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+  )
 }

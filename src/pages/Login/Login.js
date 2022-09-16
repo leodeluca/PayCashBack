@@ -1,7 +1,7 @@
-import { SafeAreaView, StyleSheet, Text, StatusBar, Image, ScrollView, View, TextInput, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, StatusBar, Image, ScrollView, View, TextInput, TouchableOpacity } from 'react-native'
 import { commonStyles } from '../../styles/CommonStyles.js'
 import PayImage from '../../../assets/pay-logo.png'
-import { useState } from 'react';
+import { useState } from 'react'
 import { API } from '../../services/api'
 
 export default function Login({ navigation }) {

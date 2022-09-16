@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
 export const commonStyles = StyleSheet.create({
     container: {
@@ -59,4 +59,4 @@ export const commonStyles = StyleSheet.create({
         color: '#3D8361',
         fontWeight: 'bold'
     }
-});
+})

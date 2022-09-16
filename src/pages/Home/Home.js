@@ -1,6 +1,6 @@
-import { SafeAreaView, StyleSheet, Text, StatusBar, Dimensions, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, StatusBar, Dimensions, TouchableOpacity } from 'react-native'
 import { commonStyles } from '../../styles/CommonStyles.js'
-import LottieView from 'lottie-react-native';
+import LottieView from 'lottie-react-native'
 
 import PayAnimation from '../../../assets/pay.json'
 
@@ -15,7 +15,7 @@ export default function Home({ navigation }) {
     }
 
     return (
-        <SafeAreaView style={{...commonStyles.container, ...styles.containerHome}}>
+        <SafeAreaView style={{ ...commonStyles.container, ...styles.containerHome }}>
             <StatusBar backgroundColor='#1C6758' />
             <LottieView
                 autoPlay

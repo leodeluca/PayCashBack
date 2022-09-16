@@ -1,7 +1,7 @@
-import { SafeAreaView, Text, StatusBar, ScrollView, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { SafeAreaView, Text, StatusBar, ScrollView, View, TouchableOpacity, StyleSheet } from 'react-native'
 import { commonStyles } from '../../styles/CommonStyles.js'
-import { useState } from "react";
-import { Calendar } from "react-native-calendars";
+import { useState } from "react"
+import { Calendar } from "react-native-calendars"
 import { format } from 'date-fns'
 
 export default function BillingDay({ navigation, route }) {

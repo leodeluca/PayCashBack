@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { SafeAreaView, StyleSheet, Text, ScrollView, View } from 'react-native';
+import { useState, useEffect } from 'react'
+import { SafeAreaView, StyleSheet, Text, ScrollView, View } from 'react-native'
 import { commonStyles } from '../../styles/CommonStyles.js'
 import { API } from '../../services/api'
 import { useIsFocused } from '@react-navigation/native'
@@ -12,12 +12,10 @@ export default function Invoices() {
     const [invoices, setInvoices] = useState([])
 
     function getInvoices() {
-        console.log(userId)
         fetch(API + '/invoices?user_id=' + userId)
             .then(async (response) => {
                 const data = await response.json()
                 setInvoices(data)
-                //console.log(data)
             })
             .catch(() => console.log('Houve um erro ao tentar listar os boletos'))
     }
@@ -33,15 +31,15 @@ export default function Invoices() {
             <Text style={{ ...commonStyles.title, fontSize: 24 }}>Boletos Pagos</Text>
             <ScrollView>
                 {
-                    invoices.length === 0 && 
-                    <Text style={{...styles.cardTextHeader, marginLeft: 20}}>Não há boletos pagos no momento</Text> 
+                    invoices.length === 0 &&
+                    <Text style={{ ...styles.cardTextHeader, marginLeft: 20 }}>Não há boletos pagos no momento</Text>
                 }
-                {   
+                {
                     invoices.length !== 0 &&
                     invoices.map((invoice) => (
                         <View style={styles.card} key={invoice.id}>
                             <View style={styles.cardHeader}>
-                                <Text style={styles.cardTextHeader}>{(invoice.date).slice(0,10)}</Text>
+                                <Text style={styles.cardTextHeader}>{(invoice.date).slice(0, 10)}</Text>
                                 <Text style={styles.cardTextHeader}>R$ {invoice.amount}</Text>
                             </View>
                             <View>

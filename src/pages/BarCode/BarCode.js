@@ -1,6 +1,6 @@
-import { SafeAreaView, Text, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
-import { BarCodeScanner } from 'expo-barcode-scanner';
-import { useState, useEffect } from 'react';
+import { SafeAreaView, Text, ScrollView, Dimensions, TouchableOpacity } from 'react-native'
+import { BarCodeScanner } from 'expo-barcode-scanner'
+import { useState, useEffect } from 'react'
 import { commonStyles } from '../../styles/CommonStyles.js'
 import { API } from '../../services/api'
 import { userId } from '../Account/Account'
@@ -15,7 +15,7 @@ export default function BarCode({ navigation }) {
     const screenFocus = useIsFocused()
 
     const getPermission = async () => {
-        const { status } = await BarCodeScanner.requestPermissionsAsync();
+        const { status } = await BarCodeScanner.requestPermissionsAsync()
         setHasPermission(status === 'granted' ? true : false)
     }
 
@@ -41,14 +41,11 @@ export default function BarCode({ navigation }) {
 
     function getResult({ data }) {
         setScanned(true)
-        console.log(data)
 
         fetch(API + '/debts?id=' + data)
             .then(async (response) => {
                 const data = await response.json()
                 if (data.length === 1) {
-                    //console.log(data)
-                    // setDebt(data)
                     navigation.navigate('TicketDetails', {
                         debt: {
                             amount: data[0].amount,

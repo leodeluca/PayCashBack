@@ -1,6 +1,6 @@
-import { SafeAreaView, Text, StatusBar, ScrollView, View, TextInput, TouchableOpacity } from 'react-native';
+import { SafeAreaView, Text, StatusBar, ScrollView, View, TextInput, TouchableOpacity } from 'react-native'
 import { commonStyles } from '../../styles/CommonStyles.js'
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import { API } from '../../services/api'
 
 export default function FormUser({ navigation }) {
@@ -14,18 +14,18 @@ export default function FormUser({ navigation }) {
 
     useEffect(() => {
         if (cpf.length === 11) {
-          fetch(API + '/users?cpf=' + cpf)
-            .then(async (response) => {
-              const data = await response.json()
-              if(data.length === 1) {
-                alert('Usuário já cadastrado. Digite CPF e senha para logar.')
-                navigation.navigate('Login')
-                setCpf('')
-              }
-            })
-            .catch(() => alert('Houve um erro ao verificar CPF existente.'))
+            fetch(API + '/users?cpf=' + cpf)
+                .then(async (response) => {
+                    const data = await response.json()
+                    if (data.length === 1) {
+                        alert('Usuário já cadastrado. Digite CPF e senha para logar.')
+                        navigation.navigate('Login')
+                        setCpf('')
+                    }
+                })
+                .catch(() => alert('Houve um erro ao verificar CPF existente.'))
         }
-      }, [cpf])
+    }, [cpf])
 
     function navigateToHome() {
         navigation.navigate('Home')

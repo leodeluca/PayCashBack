@@ -1,12 +1,11 @@
-import { SafeAreaView, Text, StatusBar, ScrollView, View, TextInput, TouchableOpacity } from 'react-native';
+import { SafeAreaView, Text, StatusBar, ScrollView, View, TextInput, TouchableOpacity } from 'react-native'
 import { commonStyles } from '../../styles/CommonStyles.js'
-import { useState } from 'react';
-import { Picker } from "@react-native-picker/picker";
+import { useState, useEffect } from 'react'
+import { Picker } from "@react-native-picker/picker"
 
 export default function FormAddress({ navigation, route }) {
 
     const { user } = route.params
-    console.log(user)
 
     const [cep, setCep] = useState('')
     const [street, setStreet] = useState('')
@@ -55,6 +54,21 @@ export default function FormAddress({ navigation, route }) {
             })
         }
     }
+
+    useEffect(() => {
+        if (cep.length === 8) {
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then(async (response) => {
+                    const data = await response.json()
+                    setStreet(data.logradouro)
+                    setCity(data.localidade)
+                    setState(data.uf)
+                    setRegion(data.bairro)
+                    setComplement(data.complemento)
+                })
+                .catch(() => alert('Houve um erro ao verificar CPF existente.'))
+        }
+    }, [cep])
 
     return (
         <SafeAreaView style={commonStyles.container}>
@@ -110,13 +124,13 @@ export default function FormAddress({ navigation, route }) {
                         <Picker.Item label='Minas Gerais' value='MG' />
                         <Picker.Item label='Pará' value='PA' />
                         <Picker.Item label='Paraíba' value='PB' />
-                        <Picker.Item label='Paraná' value='PR' />  
-                        <Picker.Item label='Pernambuco' value='PE' /> 
-                        <Picker.Item label='Piauí' value='PI' /> 
-                        <Picker.Item label='Rio de Janeiro' value='RJ' /> 
-                        <Picker.Item label='Rio Grande do Norte' value='RN' />              
-                        <Picker.Item label='Rio Grande do Sul' value='RS' /> 
-                        <Picker.Item label='Rondônia' value='RO' /> 
+                        <Picker.Item label='Paraná' value='PR' />
+                        <Picker.Item label='Pernambuco' value='PE' />
+                        <Picker.Item label='Piauí' value='PI' />
+                        <Picker.Item label='Rio de Janeiro' value='RJ' />
+                        <Picker.Item label='Rio Grande do Norte' value='RN' />
+                        <Picker.Item label='Rio Grande do Sul' value='RS' />
+                        <Picker.Item label='Rondônia' value='RO' />
                         <Picker.Item label='Roraima' value='RR' />
                         <Picker.Item label='Santa Catarina' value='SC' />
                         <Picker.Item label='São Paulo' value='SP' />

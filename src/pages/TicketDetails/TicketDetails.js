@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, ScrollView, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { SafeAreaView, Text, ScrollView, View, TouchableOpacity, StyleSheet } from 'react-native'
 import { commonStyles } from '../../styles/CommonStyles.js'
 import { API } from '../../services/api'
 import { format } from 'date-fns'

@@ -1,14 +1,14 @@
-import { SafeAreaView, Text, StatusBar, ScrollView, View, TouchableOpacity, StyleSheet, Switch } from 'react-native';
+import { SafeAreaView, Text, StatusBar, ScrollView, View, TouchableOpacity, StyleSheet, Switch } from 'react-native'
 import { commonStyles } from '../../styles/CommonStyles.js'
-import { useState } from "react";
+import { useState } from "react"
 import { API } from '../../services/api'
 
 export default function Terms({ navigation, route }) {
 
     const { user } = route.params
 
-    const [isEnabled, setIsEnabled] = useState(false);
-    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const [isEnabled, setIsEnabled] = useState(false)
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState)
 
     function navigateToBillingDay() {
         navigation.navigate('BillingDay', { user: user })
