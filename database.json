@@ -56,6 +56,25 @@
       },
       "billing_day": "2022-09-30",
       "id": 3
+    },
+    {
+      "fullname": "Charles Bronson",
+      "contact": "48999998888",
+      "email": "charle@bronson.com",
+      "number_rg": "355566",
+      "cpf": "12345678901",
+      "password": "12345678",
+      "address": {
+        "cep": "41422670",
+        "street": "Rua sem saída ",
+        "city": "Pinboquinha do sul ",
+        "state": "RS",
+        "region": "Cafundó do judas",
+        "number": "666",
+        "complement": ""
+      },
+      "billing_day": "2022-09-30",
+      "id": 4
     }
   ],
   "invoices": [
@@ -103,6 +122,42 @@
       "user_id": 3,
       "cashback": "23.02",
       "id": 5
+    },
+    {
+      "recipient": "EPP Energias do Mundo",
+      "amount": 230.23,
+      "date": "16/09/2022 16:47",
+      "code": 1234534,
+      "user_id": 3,
+      "cashback": "23.02",
+      "id": 6
+    },
+    {
+      "recipient": "DevInHouse Ltda",
+      "amount": 30.23,
+      "date": "16/09/2022 16:51",
+      "code": 545434326,
+      "user_id": 3,
+      "cashback": "3.02",
+      "id": 7
+    },
+    {
+      "recipient": "DevInHouse Ltda",
+      "amount": 30.23,
+      "date": "16/09/2022 16:51",
+      "code": 545434326,
+      "user_id": 3,
+      "cashback": "3.02",
+      "id": 8
+    },
+    {
+      "recipient": "DevInHouse Ltda",
+      "amount": 30.23,
+      "date": "16/09/2022 17:00",
+      "code": 545434326,
+      "user_id": 4,
+      "cashback": "3.02",
+      "id": 9
     }
   ],
   "debts": [

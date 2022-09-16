@@ -33,8 +33,13 @@ export default function Invoices() {
             <Text style={{ ...commonStyles.title, fontSize: 24 }}>Boletos Pagos</Text>
             <ScrollView>
                 {
+                    invoices.length === 0 && 
+                    <Text style={{...styles.cardTextHeader, marginLeft: 20}}>Não há boletos pagos no momento</Text> 
+                }
+                {   
+                    invoices.length !== 0 &&
                     invoices.map((invoice) => (
-                        <View style={styles.card} key={invoice.code}>
+                        <View style={styles.card} key={invoice.id}>
                             <View style={styles.cardHeader}>
                                 <Text style={styles.cardTextHeader}>{(invoice.date).slice(0,10)}</Text>
                                 <Text style={styles.cardTextHeader}>R$ {invoice.amount}</Text>

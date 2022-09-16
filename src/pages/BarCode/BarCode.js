@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { commonStyles } from '../../styles/CommonStyles.js'
 import { API } from '../../services/api'
 import { userId } from '../Account/Account'
+import { useIsFocused } from '@react-navigation/native'
 
 export default function BarCode({ navigation }) {
 
@@ -11,25 +12,32 @@ export default function BarCode({ navigation }) {
     const [scanned, setScanned] = useState(false)
     const [userData, setUserData] = useState([])
 
+    const screenFocus = useIsFocused()
+
     const getPermission = async () => {
         const { status } = await BarCodeScanner.requestPermissionsAsync();
         setHasPermission(status === 'granted' ? true : false)
     }
 
     useEffect(() => {
-        console.log(userId)
+        getPermission()
+    }, [])
+
+    function getUser() {
         fetch(API + '/users?id=' + userId)
             .then(async (response) => {
                 const data = await response.json()
                 setUserData(data)
-                console.log(userData[0].fullname)
             })
             .catch(() => console.log('Houve um erro ao buscar os dados do usuário.'))
-    }, [])
+    }
 
     useEffect(() => {
-        getPermission()
-    }, [])
+        if (screenFocus === true) {
+            getUser()
+            openCamera()
+        }
+    }, [screenFocus])
 
     function getResult({ data }) {
         setScanned(true)
@@ -63,8 +71,12 @@ export default function BarCode({ navigation }) {
 
     return (
         <SafeAreaView style={{ ...commonStyles.container, alignItems: 'center' }}>
-            {/* <Text style={{ ...commonStyles.title, fontSize: 22 }} numberOfLines={1} ellipsizeMode={'tail'}>Olá, {userData[0].fullname}</Text> */}
-            <Text style={{ ...commonStyles.title, fontSize: 22 }} numberOfLines={1} ellipsizeMode={'tail'}>Olá, User</Text>
+            {
+                userData.length === 0 ?
+                    <Text style={{ ...commonStyles.title, fontSize: 22 }} numberOfLines={1} ellipsizeMode={'tail'}>Olá,</Text>
+                    :
+                    <Text style={{ ...commonStyles.title, fontSize: 22 }} numberOfLines={1} ellipsizeMode={'tail'}>Olá, {userData[0].fullname}</Text>
+            }
             <ScrollView>
                 {
                     hasPermission === false && <Text style={commonStyles.infoText}>Permissão para câmera negada</Text>
@@ -80,13 +92,13 @@ export default function BarCode({ navigation }) {
                         barCodeTypes={['code39']}
                     />
                 }
-                <TouchableOpacity
-                    style={{ ...commonStyles.button, alignSelf: 'center' }}
-                    onPress={openCamera}
-                >
-                    <Text style={commonStyles.buttonText}>Escanear Boleto</Text>
-                </TouchableOpacity>
             </ScrollView>
+            <TouchableOpacity
+                style={{ ...commonStyles.button }}
+                onPress={openCamera}
+            >
+                <Text style={commonStyles.buttonText}>Escanear Boleto</Text>
+            </TouchableOpacity>
         </SafeAreaView>
     )
 }
