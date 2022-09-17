@@ -5,6 +5,7 @@ import { commonStyles } from '../../styles/CommonStyles.js'
 import { API } from '../../services/api'
 import { userId } from '../Account/Account'
 import { useIsFocused } from '@react-navigation/native'
+import Icon from '@expo/vector-icons/MaterialIcons'
 
 export default function BarCode({ navigation }) {
 
@@ -91,10 +92,11 @@ export default function BarCode({ navigation }) {
                 }
             </ScrollView>
             <TouchableOpacity
-                style={{ ...commonStyles.button }}
+                style={{ ...commonStyles.button, flexDirection: 'row' }}
                 onPress={openCamera}
             >
                 <Text style={commonStyles.buttonText}>Escanear Boleto</Text>
+                <Icon name="qr-code-scanner" color='#D6CDA4' size={24} />
             </TouchableOpacity>
         </SafeAreaView>
     )

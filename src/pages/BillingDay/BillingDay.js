@@ -3,6 +3,7 @@ import { commonStyles } from '../../styles/CommonStyles.js'
 import { useState } from "react"
 import { Calendar } from "react-native-calendars"
 import { format } from 'date-fns'
+import Icon from '@expo/vector-icons/MaterialIcons'
 
 export default function BillingDay({ navigation, route }) {
 
@@ -42,7 +43,9 @@ export default function BillingDay({ navigation, route }) {
     return (
         <SafeAreaView style={commonStyles.container}>
             <StatusBar backgroundColor='#1C6758' />
-            <Text style={{ ...commonStyles.title, fontSize: 24 }}>Qual da data da cobrança ?</Text>
+            <View style={commonStyles.containerTitle}>
+                <Text style={{ ...commonStyles.title, fontSize: 24 }}>Qual da data da cobrança ?</Text>
+            </View>
             <ScrollView>
                 <View style={commonStyles.inputContainer}>
                     <Calendar
@@ -69,16 +72,18 @@ export default function BillingDay({ navigation, route }) {
                     />
                     <View style={commonStyles.buttonContainer}>
                         <TouchableOpacity
-                            style={{ ...commonStyles.button, width: '40%' }}
+                            style={{ ...commonStyles.button, width: '40%', flexDirection: 'row' }}
                             onPress={navigateToFormAddress}
                         >
+                            <Icon name="undo" color='#D6CDA4' size={24} />
                             <Text style={commonStyles.buttonText}>Voltar</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            style={{ ...commonStyles.button, width: '40%' }}
+                            style={{ ...commonStyles.button, width: '40%', flexDirection: 'row' }}
                             onPress={navigateToTerms}
                         >
                             <Text style={commonStyles.buttonText}>Continuar</Text>
+                            <Icon name="redo" color='#D6CDA4' size={24} />
                         </TouchableOpacity>
                     </View>
                 </View>

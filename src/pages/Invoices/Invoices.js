@@ -4,6 +4,7 @@ import { commonStyles } from '../../styles/CommonStyles.js'
 import { API } from '../../services/api'
 import { useIsFocused } from '@react-navigation/native'
 import { userId } from '../Account/Account'
+import Icon from '@expo/vector-icons/MaterialIcons'
 
 export default function Invoices() {
 
@@ -28,7 +29,10 @@ export default function Invoices() {
 
     return (
         <SafeAreaView style={commonStyles.container}>
-            <Text style={{ ...commonStyles.title, fontSize: 24 }}>Boletos Pagos</Text>
+            <View style={commonStyles.containerTitle}>
+                <Icon style={commonStyles.iconTitle} name="payments" color='#1C6758' size={36} />
+                <Text style={{ ...commonStyles.title, fontSize: 24 }}>Boletos Pagos</Text>
+            </View>
             <ScrollView>
                 {
                     invoices.length === 0 &&

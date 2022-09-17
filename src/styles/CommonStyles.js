@@ -12,6 +12,14 @@ export const commonStyles = StyleSheet.create({
         marginVertical: 20,
         alignSelf: 'center'
     },
+    containerTitle:{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    iconTitle: {
+        marginHorizontal: 10
+    },
     button: {
         height: 50,
         width: '50%',
@@ -25,7 +33,8 @@ export const commonStyles = StyleSheet.create({
     buttonText: {
         color: '#D6CDA4',
         fontSize: 14,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginHorizontal: 7
     },
     buttonContainer: {
         flexDirection: 'row',

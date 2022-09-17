@@ -2,6 +2,7 @@ import { SafeAreaView, Text, StatusBar, ScrollView, View, TouchableOpacity, Styl
 import { commonStyles } from '../../styles/CommonStyles.js'
 import { useState } from "react"
 import { API } from '../../services/api'
+import Icon from '@expo/vector-icons/MaterialIcons'
 
 export default function Terms({ navigation, route }) {
 
@@ -50,7 +51,10 @@ export default function Terms({ navigation, route }) {
     return (
         <SafeAreaView style={commonStyles.container}>
             <StatusBar backgroundColor='#1C6758' />
-            <Text style={{ ...commonStyles.title, fontSize: 24 }}>Termos de uso</Text>
+            <View style={commonStyles.containerTitle}>
+                <Icon style={commonStyles.iconTitle} name="assignment" color='#1C6758' size={36} />
+                <Text style={{ ...commonStyles.title, fontSize: 24 }}>Termos de uso</Text>
+            </View>
             <ScrollView>
                 <Text style={styles.term}>
                     Proin tincidunt egestas massa, non pellentesque lacus eleifend at.
@@ -94,25 +98,28 @@ export default function Terms({ navigation, route }) {
                     </View>
                     <View style={commonStyles.buttonContainer}>
                         <TouchableOpacity
-                            style={{ ...commonStyles.button, width: '40%' }}
+                            style={{ ...commonStyles.button, width: '40%', flexDirection: 'row' }}
                             onPress={navigateToBillingDay}
                         >
+                            <Icon name="undo" color='#D6CDA4' size={24} />
                             <Text style={commonStyles.buttonText}>Voltar</Text>
                         </TouchableOpacity>
 
                         {isEnabled === true ?
                             <TouchableOpacity
-                                style={{ ...commonStyles.button, width: '40%' }}
+                                style={{ ...commonStyles.button, width: '40%', flexDirection: 'row' }}
                                 onPress={addUser}
-                            >
+                            >                               
                                 <Text style={commonStyles.buttonText}>Finalizar</Text>
+                                <Icon name="done" color='#D6CDA4' size={24} />
                             </TouchableOpacity>
                             :
                             <TouchableOpacity
                                 disabled={true}
-                                style={{ ...commonStyles.button, width: '40%', opacity: 0.7 }}
+                                style={{ ...commonStyles.button, width: '40%', opacity: 0.7, flexDirection: 'row' }}
                             >
                                 <Text style={commonStyles.buttonText}>Finalizar</Text>
+                                <Icon name="done" color='#D6CDA4' size={24} />
                             </TouchableOpacity>
                         }
                     </View>

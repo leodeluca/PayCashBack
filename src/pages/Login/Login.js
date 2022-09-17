@@ -3,6 +3,7 @@ import { commonStyles } from '../../styles/CommonStyles.js'
 import PayImage from '../../../assets/pay-logo.png'
 import { useState } from 'react'
 import { API } from '../../services/api'
+import Icon from '@expo/vector-icons/MaterialIcons'
 
 export default function Login({ navigation }) {
 
@@ -71,10 +72,11 @@ export default function Login({ navigation }) {
                         onChangeText={setPassword}
                     />
                     <TouchableOpacity
-                        style={commonStyles.button}
+                        style={{ ...commonStyles.button, flexDirection: 'row' }}
                         onPress={getUser}
                     >
                         <Text style={commonStyles.buttonText}>Logar</Text>
+                        <Icon name="login" color='#D6CDA4' size={24} />
                     </TouchableOpacity>
                     <Text
                         style={styles.callToActionText}

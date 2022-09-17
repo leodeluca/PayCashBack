@@ -3,6 +3,7 @@ import { SafeAreaView, Text, ScrollView, View, TouchableOpacity } from 'react-na
 import { commonStyles } from '../../styles/CommonStyles.js'
 import { API } from '../../services/api'
 import { useIsFocused } from '@react-navigation/native'
+import Icon from '@expo/vector-icons/MaterialIcons'
 
 export let userId = ''
 
@@ -35,7 +36,10 @@ export default function Account({ navigation, route }) {
 
   return (
     <SafeAreaView style={commonStyles.container}>
-      <Text style={{ ...commonStyles.title, fontSize: 24 }}>Dados da conta</Text>
+      <View style={commonStyles.containerTitle}>
+        <Icon style={commonStyles.iconTitle} name="person-outline" color='#1C6758' size={36} />
+        <Text style={{ ...commonStyles.title, fontSize: 24 }}>Dados da conta</Text>
+      </View>
       <ScrollView horizontal>
         {
           userData.length === 0 ?
@@ -50,10 +54,11 @@ export default function Account({ navigation, route }) {
         }
       </ScrollView>
       <TouchableOpacity
-        style={{ ...commonStyles.button, alignSelf: 'center' }}
+        style={{ ...commonStyles.button, alignSelf: 'center', flexDirection: 'row' }}
         onPress={navigateToHome}
       >
         <Text style={commonStyles.buttonText}>Sair do App</Text>
+        <Icon name="logout" color='#D6CDA4' size={24} />
       </TouchableOpacity>
     </SafeAreaView>
   )

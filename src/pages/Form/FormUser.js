@@ -2,6 +2,7 @@ import { SafeAreaView, Text, StatusBar, ScrollView, View, TextInput, TouchableOp
 import { commonStyles } from '../../styles/CommonStyles.js'
 import { useState, useEffect } from 'react'
 import { API } from '../../services/api'
+import Icon from '@expo/vector-icons/MaterialIcons'
 
 export default function FormUser({ navigation }) {
 
@@ -61,7 +62,10 @@ export default function FormUser({ navigation }) {
     return (
         <SafeAreaView style={commonStyles.container}>
             <StatusBar backgroundColor='#1C6758' />
-            <Text style={{ ...commonStyles.title, fontSize: 24 }}>Nova Conta</Text>
+            <View style={commonStyles.containerTitle}>
+                <Icon style={commonStyles.iconTitle} name="person-outline" color='#1C6758' size={36} />
+                <Text style={{ ...commonStyles.title, fontSize: 24 }}>Nova Conta</Text>
+            </View>
             <ScrollView>
                 <View style={commonStyles.inputContainer}>
                     <Text style={commonStyles.inputLabel}>Nome Completo: *</Text>
@@ -69,7 +73,7 @@ export default function FormUser({ navigation }) {
                         style={commonStyles.input}
                         placeholderTextColor='#3D8361'
                         selectionColor='#3D8361'
-                        maxLength={120} // min: 8
+                        maxLength={120}
                         value={fullname}
                         onChangeText={setFullname}
                         autoFocus
@@ -124,16 +128,18 @@ export default function FormUser({ navigation }) {
                     />
                     <View style={commonStyles.buttonContainer}>
                         <TouchableOpacity
-                            style={{ ...commonStyles.button, width: '40%' }}
+                            style={{ ...commonStyles.button, width: '40%', flexDirection: 'row' }}
                             onPress={navigateToHome}
                         >
+                            <Icon name="undo" color='#D6CDA4' size={24} />
                             <Text style={commonStyles.buttonText}>Voltar</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            style={{ ...commonStyles.button, width: '40%' }}
+                            style={{ ...commonStyles.button, width: '40%', flexDirection: 'row' }}
                             onPress={navigateToFormAddress}
                         >
                             <Text style={commonStyles.buttonText}>Continuar</Text>
+                            <Icon name="redo" color='#D6CDA4' size={24} />
                         </TouchableOpacity>
                     </View>
                 </View>

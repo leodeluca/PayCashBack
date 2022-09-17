@@ -2,7 +2,7 @@ import { SafeAreaView, Text, ScrollView, View, TouchableOpacity, StyleSheet } fr
 import { commonStyles } from '../../styles/CommonStyles.js'
 import { API } from '../../services/api'
 import { format } from 'date-fns'
-
+import Icon from '@expo/vector-icons/MaterialIcons'
 
 export default function TicketDetails({ navigation, route }) {
 
@@ -40,7 +40,10 @@ export default function TicketDetails({ navigation, route }) {
 
     return (
         <SafeAreaView style={commonStyles.container}>
-            <Text style={{ ...commonStyles.title, fontSize: 24 }}>Detalhes do Boleto</Text>
+            <View style={commonStyles.containerTitle}>
+                <Icon style={commonStyles.iconTitle} name="info-outline" color='#1C6758' size={36} />
+                <Text style={{ ...commonStyles.title, fontSize: 24 }}>Detalhes do Boleto</Text>
+            </View>
             <ScrollView>
                 <View style={styles.card} >
                     <View>
@@ -62,16 +65,18 @@ export default function TicketDetails({ navigation, route }) {
                 </View>
             </ScrollView>
             <TouchableOpacity
-                style={{ ...commonStyles.button, alignSelf: 'center' }}
+                style={{ ...commonStyles.button, alignSelf: 'center', flexDirection: 'row' }}
                 onPress={addInvoice}
             >
                 <Text style={commonStyles.buttonText}>Pagar</Text>
+                <Icon name="attach-money" color='#D6CDA4' size={24} />
             </TouchableOpacity>
             <TouchableOpacity
-                style={{ ...commonStyles.button, alignSelf: 'center' }}
+                style={{ ...commonStyles.button, alignSelf: 'center', flexDirection: 'row' }}
                 onPress={navigationToBarCode}
             >
                 <Text style={commonStyles.buttonText}>Cancelar</Text>
+                <Icon name="cancel" color='#D6CDA4' size={24} />
             </TouchableOpacity>
         </SafeAreaView>
     )
