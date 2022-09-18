@@ -158,6 +158,15 @@
       "user_id": 4,
       "cashback": "3.02",
       "id": 9
+    },
+    {
+      "recipient": "EPP Energias do Mundo",
+      "amount": 230.23,
+      "date": "18/09/2022 18:24",
+      "code": 1234534,
+      "user_id": 1,
+      "cashback": "23.02",
+      "id": 10
     }
   ],
   "debts": [

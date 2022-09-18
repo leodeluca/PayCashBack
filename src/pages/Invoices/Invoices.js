@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { SafeAreaView, StyleSheet, Text, ScrollView, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, ScrollView, View, TextInput, TouchableOpacity } from 'react-native'
 import { commonStyles } from '../../styles/CommonStyles.js'
 import { API } from '../../services/api'
 import { useIsFocused } from '@react-navigation/native'
@@ -11,14 +11,19 @@ export default function Invoices() {
     const screenFocus = useIsFocused()
 
     const [invoices, setInvoices] = useState([])
+    const [searchText, setSearchText] = useState('')
 
     function getInvoices() {
-        fetch(API + '/invoices?user_id=' + userId)
+        fetch(API + '/invoices?user_id=' + userId + '&q=' + searchText)
             .then(async (response) => {
                 const data = await response.json()
                 setInvoices(data)
             })
             .catch(() => console.log('Houve um erro ao tentar listar os boletos'))
+    }
+
+    function searchInvoice() {
+        getInvoices()
     }
 
     useEffect(() => {
@@ -32,6 +37,24 @@ export default function Invoices() {
             <View style={commonStyles.containerTitle}>
                 <Icon style={commonStyles.iconTitle} name="payments" color='#1C6758' size={36} />
                 <Text style={{ ...commonStyles.title, fontSize: 24 }}>Boletos Pagos</Text>
+            </View>
+            <View style={styles.searchContainer}>
+                <TextInput
+                    style={{ ...commonStyles.input, ...styles.inputSearch }}
+                    placeholder='Pesquisar...'
+                    placeholderTextColor='#3D8361'
+                    selectionColor='#3D8361'
+                    autoCapitalize='none'
+                    value={searchText}
+                    onChangeText={setSearchText}
+                />
+                <TouchableOpacity style={styles.buttonSearch} onPress={searchInvoice}>
+                    <Icon
+                        name='search'
+                        size={32}
+                        color='#D6CDA4'
+                    />
+                </TouchableOpacity>
             </View>
             <ScrollView>
                 {
@@ -83,5 +106,23 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#1C6758'
+    },
+    searchContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginHorizontal: 20
+    },
+    inputSearch: {
+        width: '80%',
+        borderRadius: 10
+    },
+    buttonSearch: {
+        width: 50,
+        height: 50,
+        borderRadius: 10,
+        backgroundColor: '#3D8361',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
