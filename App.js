@@ -8,6 +8,7 @@ import Icon from '@expo/vector-icons/MaterialIcons'
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 const BarCodeStack = createStackNavigator()
+const AccountStack = createStackNavigator()
 
 import Home from './src/pages/Home/Home'
 import Login from './src/pages/Login/Login'
@@ -19,19 +20,20 @@ import Account from './src/pages/Account/Account'
 import Invoices from './src/pages/Invoices/Invoices'
 import BarCode from './src/pages/BarCode/BarCode'
 import TicketDetails from './src/pages/TicketDetails/TicketDetails'
+import EditAccount from './src/pages/Account/EditAccount'
 
 function AccountNavigator() {
   return (
     <Tab.Navigator
-      initialRouteName="Account"
+      initialRouteName="AccountStackNavigator"
       screenOptions={{
         tabBarActiveTintColor: '#1C6758',
         tabBarInactiveTintColor: '#D6CDA4',
       }}
     >
       <Tab.Screen
-        name='Account'
-        component={Account}
+        name='AccountStackNavigator'
+        component={AccountStackNavigator}
         options={{
           tabBarLabel: 'Dados da conta',
           tabBarIcon: ({ color }) => (
@@ -82,6 +84,25 @@ function BarCodeNavigator() {
           }
         } />
     </BarCodeStack.Navigator>
+  )
+}
+
+function AccountStackNavigator() {
+  return (
+    <AccountStack.Navigator>
+      <AccountStack.Screen name='Account' component={Account}
+        options={
+          {
+            headerShown: false
+          }
+        } />
+      <AccountStack.Screen name='EditAccount' component={EditAccount}
+        options={
+          {
+            headerShown: false
+          }
+        } />
+    </AccountStack.Navigator>
   )
 }
 

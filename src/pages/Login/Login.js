@@ -4,6 +4,7 @@ import PayImage from '../../../assets/pay-logo.png'
 import { useState } from 'react'
 import { API } from '../../services/api'
 import Icon from '@expo/vector-icons/MaterialIcons'
+import MaskInput from 'react-native-mask-input'
 
 export default function Login({ navigation }) {
 
@@ -28,8 +29,11 @@ export default function Login({ navigation }) {
                     } else {
                         navigation.navigate('AccountNavigator',
                             {
-                                screen: 'Account',
-                                params: { id: data[0].id },
+                                screen: 'AccountStackNavigator',
+                                params: {
+                                    screen: 'Account',
+                                    params: { id: data[0].id }
+                                }
                             }
                         )
                         setCpf('')
@@ -52,15 +56,18 @@ export default function Login({ navigation }) {
                     />
                 </View>
                 <View style={commonStyles.inputContainer}>
-                    <TextInput
+                    <MaskInput
                         style={commonStyles.input}
-                        placeholder='CPF'
                         placeholderTextColor='#3D8361'
+                        placeholder='CPF'
                         selectionColor='#3D8361'
                         keyboardType='number-pad'
-                        value={cpf}
-                        onChangeText={setCpf}
                         autoFocus
+                        value={cpf}
+                        onChangeText={(masked, unmasked) => {
+                            setCpf(unmasked)
+                        }}
+                        mask={[/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/]}
                     />
                     <TextInput
                         style={commonStyles.input}

@@ -3,6 +3,7 @@ import { commonStyles } from '../../styles/CommonStyles.js'
 import { useState, useEffect } from 'react'
 import { Picker } from "@react-native-picker/picker"
 import Icon from '@expo/vector-icons/MaterialIcons'
+import MaskInput from 'react-native-mask-input'
 
 export default function FormAddress({ navigation, route }) {
 
@@ -81,13 +82,16 @@ export default function FormAddress({ navigation, route }) {
             <ScrollView>
                 <View style={commonStyles.inputContainer}>
                     <Text style={commonStyles.inputLabel}>CEP: *</Text>
-                    <TextInput
+                    <MaskInput
                         style={commonStyles.input}
                         placeholderTextColor='#3D8361'
                         selectionColor='#3D8361'
                         keyboardType='number-pad'
                         value={cep}
-                        onChangeText={setCep}
+                        onChangeText={(masked, unmasked) => {
+                            setCep(unmasked)
+                        }}
+                        mask={[/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]}
                         autoFocus
                     />
                     <Text style={commonStyles.inputLabel}>Rua: *</Text>
@@ -163,7 +167,6 @@ export default function FormAddress({ navigation, route }) {
                         style={commonStyles.input}
                         placeholderTextColor='#3D8361'
                         selectionColor='#3D8361'
-                        keyboardType='number-pad'
                         value={complement}
                         onChangeText={setComplement}
                     />

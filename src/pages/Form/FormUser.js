@@ -3,6 +3,7 @@ import { commonStyles } from '../../styles/CommonStyles.js'
 import { useState, useEffect } from 'react'
 import { API } from '../../services/api'
 import Icon from '@expo/vector-icons/MaterialIcons'
+import MaskInput from 'react-native-mask-input'
 
 export default function FormUser({ navigation }) {
 
@@ -37,12 +38,16 @@ export default function FormUser({ navigation }) {
             alert('O preenchimento do nome completo é obrigatório e deve conter entre 8 e 120 letras.')
         } else if (!contact || contact.length === 0) {
             alert('O preenchimento do telefone é obrigatório.')
+        } else if (contact.length !== 11) {
+            alert('O telefone deve conter 11 dígitos.')
         } else if (!email || email.length === 0) {
             alert('O preenchimento do email é obrigatório.')
         } else if (!numberRg || numberRg.length === 0) {
             alert('O preenchimento do número do RG é obrigatório.')
         } else if (!cpf || cpf.length === 0) {
             alert('O preenchimento do CPF é obrigatório.')
+        } else if (cpf.length !== 11) {
+            alert('O CPF deve conter 11 dígitos.')
         } else if (!password || (password.length < 8 && password.length >= 16)) {
             alert('O preenchimento da senha é obrigatório e deve conter entre 8 e 16 caracteres.')
         } else {
@@ -79,13 +84,16 @@ export default function FormUser({ navigation }) {
                         autoFocus
                     />
                     <Text style={commonStyles.inputLabel}>Telefone: *</Text>
-                    <TextInput
+                    <MaskInput
                         style={commonStyles.input}
                         placeholderTextColor='#3D8361'
                         selectionColor='#3D8361'
                         keyboardType='number-pad'
                         value={contact}
-                        onChangeText={setContact}
+                        onChangeText={(masked, unmasked) => {
+                            setContact(unmasked)
+                        }}
+                        mask={['(', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
                     />
                     <Text style={commonStyles.inputLabel}>E-mail: *</Text>
                     <TextInput
@@ -107,13 +115,16 @@ export default function FormUser({ navigation }) {
                         onChangeText={setNumberRg}
                     />
                     <Text style={commonStyles.inputLabel}>CPF: *</Text>
-                    <TextInput
+                    <MaskInput
                         style={commonStyles.input}
                         placeholderTextColor='#3D8361'
                         selectionColor='#3D8361'
                         keyboardType='number-pad'
                         value={cpf}
-                        onChangeText={setCpf}
+                        onChangeText={(masked, unmasked) => {
+                            setCpf(unmasked)
+                        }}
+                        mask={[/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/]}
                     />
                     <Text style={commonStyles.inputLabel}>Senha: *</Text>
                     <TextInput

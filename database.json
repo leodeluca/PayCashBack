@@ -1,50 +1,12 @@
 {
   "users": [
     {
-      "id": 1,
-      "fullname": "Zé da Silva",
-      "contact": 995548323,
-      "email": "ze@silva.com",
-      "number_rg": 3542689,
-      "cpf": 99966699966,
-      "password": 12345678,
-      "address": {
-        "cep": 88088200,
-        "street": "Rua sem saída",
-        "city": "Garopaba",
-        "state": "SC",
-        "region": "Bairro do Tibursu",
-        "number": 100,
-        "complement": "sem complemento"
-      },
-      "billing_day": "2022-10-10"
-    },
-    {
-      "fullname": "Teste",
-      "contact": "123",
-      "email": ".com",
-      "number_rg": "123",
-      "cpf": "123",
-      "password": "123",
-      "address": {
-        "cep": "123",
-        "street": "123",
-        "city": "Teste",
-        "state": "SC",
-        "region": "Teste",
-        "number": "123",
-        "complement": ""
-      },
-      "billing_day": "2022-10-20",
-      "id": 2
-    },
-    {
       "fullname": "Leonardo Cirimbelli De Luca",
       "contact": "48996568398",
       "email": "leocluca@gmail.com",
       "number_rg": "3170653",
       "cpf": "04736375965",
-      "password": "12345678",
+      "password": "87654321",
       "address": {
         "cep": "88036270",
         "street": "Juvêncio Costa",
@@ -75,6 +37,44 @@
       },
       "billing_day": "2022-09-30",
       "id": 4
+    },
+    {
+      "fullname": "Soraia",
+      "contact": "48999785073",
+      "email": "soraia@gmail.com",
+      "number_rg": "452800",
+      "cpf": "98765432102",
+      "password": "12345678",
+      "address": {
+        "cep": "88811020",
+        "street": "Rua Monteiro Lobato",
+        "city": "Criciúma",
+        "state": "SC",
+        "region": "Cruzeiro do Sul",
+        "number": "185",
+        "complement": "até 184 - lado par"
+      },
+      "billing_day": "2022-09-20",
+      "id": 5
+    },
+    {
+      "fullname": "Stanley Kubrick ",
+      "contact": "65885588855",
+      "email": "cultmovie@gmail.com.br",
+      "number_rg": "987456321",
+      "cpf": "77788899944",
+      "password": "abcdefgh",
+      "address": {
+        "cep": "01001000",
+        "street": "Praça da Sé",
+        "city": "São Paulo",
+        "state": "SP",
+        "region": "Sé",
+        "number": "3333",
+        "complement": "lado ímpar"
+      },
+      "billing_day": "2022-11-18",
+      "id": 7
     }
   ],
   "invoices": [
@@ -104,15 +104,6 @@
       "user_id": 3,
       "cashback": 23.02,
       "id": 3
-    },
-    {
-      "recipient": "DevInHouse Ltda",
-      "amount": 230.23,
-      "date": "15/09/2022 15:30",
-      "code": "1234567",
-      "user_id": 2,
-      "cashback": 23.02,
-      "id": 4
     },
     {
       "recipient": "EPP Energias do Mundo",
@@ -162,11 +153,38 @@
     {
       "recipient": "EPP Energias do Mundo",
       "amount": 230.23,
-      "date": "18/09/2022 18:24",
+      "date": "18/09/2022 19:28",
       "code": 1234534,
-      "user_id": 1,
+      "user_id": 5,
       "cashback": "23.02",
-      "id": 10
+      "id": 11
+    },
+    {
+      "recipient": "DevInHouse Ltda",
+      "amount": 30.23,
+      "date": "20/09/2022 17:38",
+      "code": 545434326,
+      "user_id": 6,
+      "cashback": "3.02",
+      "id": 12
+    },
+    {
+      "recipient": "EPP Energias do Mundo",
+      "amount": 230.23,
+      "date": "20/09/2022 17:45",
+      "code": 1234534,
+      "user_id": 7,
+      "cashback": "23.02",
+      "id": 13
+    },
+    {
+      "recipient": "DevInHouse Ltda",
+      "amount": 30.23,
+      "date": "20/09/2022 17:45",
+      "code": 545434326,
+      "user_id": 7,
+      "cashback": "3.02",
+      "id": 14
     }
   ],
   "debts": [
