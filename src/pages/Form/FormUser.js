@@ -34,7 +34,7 @@ export default function FormUser({ navigation }) {
     }
 
     function navigateToFormAddress() {
-        if (!fullname || (fullname.length < 8 && fullname.length >= 120)) {
+        if (!fullname || fullname.length < 8 || fullname.length >= 120) {
             alert('O preenchimento do nome completo é obrigatório e deve conter entre 8 e 120 letras.')
         } else if (!contact || contact.length === 0) {
             alert('O preenchimento do telefone é obrigatório.')
@@ -48,7 +48,7 @@ export default function FormUser({ navigation }) {
             alert('O preenchimento do CPF é obrigatório.')
         } else if (cpf.length !== 11) {
             alert('O CPF deve conter 11 dígitos.')
-        } else if (!password || (password.length < 8 && password.length >= 16)) {
+        } else if (!password || password.length < 8 || password.length >= 16) {
             alert('O preenchimento da senha é obrigatório e deve conter entre 8 e 16 caracteres.')
         } else {
             navigation.navigate('FormAddress', {

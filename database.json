@@ -185,6 +185,15 @@
       "user_id": 7,
       "cashback": "3.02",
       "id": 14
+    },
+    {
+      "recipient": "DevInHouse Ltda",
+      "amount": 30.23,
+      "date": "24/09/2022 13:57",
+      "code": 545434326,
+      "user_id": 8,
+      "cashback": "3.02",
+      "id": 15
     }
   ],
   "debts": [

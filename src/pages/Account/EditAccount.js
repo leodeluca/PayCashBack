@@ -18,7 +18,7 @@ export default function EditAccount({ navigation, route }) {
     function updateUser() {
         if (!email || email.length === 0) {
             alert('O preenchimento do email é obrigatório.')
-        } else if (!password || (password.length < 8 && password.length >= 16)) {
+        } else if (!password || password.length < 8 || password.length >= 16) {
             alert('O preenchimento da senha é obrigatório e deve conter entre 8 e 16 caracteres.')
         } else {
             fetch(API + '/users/' + user.id, {
